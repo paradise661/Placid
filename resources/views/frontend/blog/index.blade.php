@@ -1,0 +1,156 @@
+@extends('layouts.frontend.master')
+
+@section('content')
+    <section class="page-header">
+        <div class="page-header__top">
+            <div class="page-header-bg"
+                style="background-image: url('{{ asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}');"></div>
+            <div class="page-header-bg-overly"></div>
+            <div class="container">
+                <div class="page-header__top-inner">
+                    <h2>Latest Blogs</h2>
+                </div>
+            </div>
+        </div>
+        <div class="page-header__bottom">
+            <div class="container">
+                <div class="page-header__bottom-inner">
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><span>.</span></li>
+                        <li class="active">Blogs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Page Header End-->
+
+    <!--News One Start-->
+    <section class="news-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                    <!--News One Single-->
+                    <div class="news-one__single">
+                        <div class="news-one__img">
+                            <img src="{{ asset('frontend/assets/images/blog/news-page-1.jpg') }}" alt="">
+                            <a href="news-details.html">
+                                <span class="news-one__plus"></span>
+                            </a>
+                            <div class="news-one__date">
+                                <p>28 <br> <span>Aug</span></p>
+                            </div>
+                        </div>
+                        <div class="news-one__content">
+
+                            <h3 class="news-one__title">
+                                <a href="news-details.html">Things to See and Do When Visiting Japan</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                    <!--News One Single-->
+                    <div class="news-one__single">
+                        <div class="news-one__img">
+                            <img src="{{ asset('frontend/assets/images/blog/news-page-2.jpg') }}" alt="">
+                            <a href="news-details.html">
+                                <span class="news-one__plus"></span>
+                            </a>
+                            <div class="news-one__date">
+                                <p>28 <br> <span>Aug</span></p>
+                            </div>
+                        </div>
+                        <div class="news-one__content">
+
+                            <h3 class="news-one__title">
+                                <a href="news-details.html">Journeys are Best Measured in New Friends</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                    <!--News One Single-->
+                    <div class="news-one__single">
+                        <div class="news-one__img">
+                            <img src="{{ asset('frontend/assets/images/blog/news-page-3.jpg') }}" alt="">
+                            <a href="news-details.html">
+                                <span class="news-one__plus"></span>
+                            </a>
+                            <div class="news-one__date">
+                                <p>28 <br> <span>Aug</span></p>
+                            </div>
+                        </div>
+                        <div class="news-one__content">
+
+                            <h3 class="news-one__title">
+                                <a href="news-details.html">Travel the Most Beautiful Places in the World</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                    <!--News One Single-->
+                    <div class="news-one__single">
+                        <div class="news-one__img">
+                            <img src="{{ asset('frontend/assets/images/blog/news-page-4.jpg') }}" alt="">
+                            <a href="news-details.html">
+                                <span class="news-one__plus"></span>
+                            </a>
+                            <div class="news-one__date">
+                                <p>28 <br> <span>Aug</span></p>
+                            </div>
+                        </div>
+                        <div class="news-one__content">
+
+                            <h3 class="news-one__title">
+                                <a href="news-details.html">Things to See and Do When Visiting Japan</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="500ms">
+                    <!--News One Single-->
+                    <div class="news-one__single">
+                        <div class="news-one__img">
+                            <img src="{{ asset('frontend/assets/images/blog/news-page-5.jpg') }}" alt="">
+                            <a href="news-details.html">
+                                <span class="news-one__plus"></span>
+                            </a>
+                            <div class="news-one__date">
+                                <p>28 <br> <span>Aug</span></p>
+                            </div>
+                        </div>
+                        <div class="news-one__content">
+
+                            <h3 class="news-one__title">
+                                <a href="news-details.html">Journeys are Best Measured in New Friends</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="600ms">
+                    <!--News One Single-->
+                    <div class="news-one__single">
+                        <div class="news-one__img">
+                            <img src="{{ asset('frontend/assets/images/blog/news-page-6.jpg') }}" alt="">
+                            <a href="news-details.html">
+                                <span class="news-one__plus"></span>
+                            </a>
+                            <div class="news-one__date">
+                                <p>28 <br> <span>Aug</span></p>
+                            </div>
+                        </div>
+                        <div class="news-one__content">
+
+                            <h3 class="news-one__title">
+                                <a href="news-details.html">Travel the Most Beautiful Places in the World</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
