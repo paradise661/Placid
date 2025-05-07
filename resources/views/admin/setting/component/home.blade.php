@@ -38,16 +38,16 @@
 
         {{-- Study Abroad --}}
         <fieldset class="border p-3">
-            <legend class="float-none w-auto legend-title">Study Abroad Settings</legend>
+            <legend class="float-none w-auto legend-title">Contact Banner</legend>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label class="pb-2" for="abroads_title">Enter Abroads Title</label>
+                        <label class="pb-2" for="abroads_title">Enter Banner Title</label>
                         <input class="form-control br-8" type="text" name="abroads_title"
                             value="{{ $settings['abroads_title'] }}" placeholder="Enter Abroads Title">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="pb-2" for="abroads_image">Enter Abroad Banner</label>
+                        <label class="pb-2" for="abroads_image">Enter Banner</label>
                         <div class="custom-file">
                             <input class="abroadsimage" id="abroads_image" data-show-remove="false"
                                 data-default-file="{{ $settings['abroads_image'] }}" type="file"
@@ -58,7 +58,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label class="pb-3" for="abroads_description">Enter Abroad Description</label>
+                        <label class="pb-3" for="abroads_description">Enter Banner Description</label>
 
                         <textarea class="form-control br-8" name="abroads_description" rows="11">{{ $settings['abroads_description'] }}</textarea>
                     </div>
@@ -74,29 +74,31 @@
         {{-- Course  --}}
 
         <fieldset class="border p-3">
-            <legend class="float-none w-auto legend-title">Course Settings</legend>
+            <legend class="float-none w-auto legend-title">Mission Vision</legend>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label class="pb-2" for="testpreperation_title">Enter Course Title</label>
-                        <input class="form-control br-8" type="text" name="testpreperation_title"
-                            value="{{ $settings['testpreperation_title'] }}" placeholder="Enter Course title Title">
+                        <label class="pb-2" for="mision_title">Enter Mission Title</label>
+                        <input class="form-control br-8" type="text" name="mision_title"
+                            value="{{ $settings['mision_title'] }}" placeholder="Enter Title">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="pb-2" for="testpreperation_image">Enter Course Banner</label>
-                        <div class="custom-file">
-                            <input class="abroadsimage" id="testpreperation_image" data-show-remove="false"
-                                data-default-file="{{ $settings['testpreperation_image'] }}" type="file"
-                                name="testpreperation_image">
-                        </div>
+                        <label class="pb-3" for="mision_description">Enter Mission Description</label>
+
+                        <textarea class="form-control br-8" name="mision_description" rows="11">{{ $settings['mision_description'] }}</textarea>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label class="pb-3" for="testpreperation_description">Enter Course Description</label>
+                        <label class="pb-2" for="vision_title">Enter Vision Title</label>
+                        <input class="form-control br-8" type="text" name="vision_title"
+                            value="{{ $settings['vision_title'] }}" placeholder="Enter Title">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="pb-3" for="vision_description">Enter Vision Description</label>
 
-                        <textarea class="form-control br-8" name="testpreperation_description" rows="11">{{ $settings['testpreperation_description'] }}</textarea>
+                        <textarea class="form-control br-8" name="vision_description" rows="11">{{ $settings['vision_description'] }}</textarea>
                     </div>
 
                 </div>

@@ -1,95 +1,94 @@
 @extends('layouts.frontend.master')
-@section('seo')
-    @include('frontend.seo.seo', [
-        'name' => $blog->name ?? 'Gyanmarga Education and Services',
-        'title' => $blog->seo_title ?? $blog->name,
-        'description' => $blog->meta_description ?? 'Gyanmarga Education and Services',
-        'keyword' => $blog->keywords ?? 'Gyanmarga Education and Services',
-        'schema' => $blog->seo_schema ?? 'Gyanmarga Education and Services',
-        'created_at' => $blog->created_at,
-        'updated_at' => $blog->updated_at,
-    ])
-@endsection
+
 @section('content')
-    <!-- Breadcrumb Section with Background Image -->
-    <section class="breadcrumb-section position-relative">
-        <div class="breadcrumb-bg-overlay"></div>
-        <div class="breadcrumb-bg">
-            <img class="breadcrumb-bg-image" src="{{ asset($blog->banner_image) }}" alt="{{ $blog->name }}">
+    <section class="page-header">
+        <div class="page-header__top">
+            <div class="page-header-bg"
+                style="background-image: url('{{ asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}');">
+            </div>
+            <div class="page-header-bg-overly"></div>
+            <div class="container">
+                <div class="page-header__top-inner">
+                    <h2>{{ $blog->name }}</h2>
+                </div>
+            </div>
         </div>
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb-content py-4">
-                        <h2 class="breadcrumb-title text-white mb-3">{{ $blog->name ?? '' }}</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0 justify-content-center justify-content-md-start">
-                                <li class="breadcrumb-item"><a class="text-white text-decoration-none"
-                                        href="{{ route('home') }}">Home</a></li>
-                                <li class="breadcrumb-item"><a class="text-white text-decoration-none"
-                                        href="{{ route('blogs') }}">blogs</a></li>
-                                <li class="breadcrumb-item active text-white bluetext" aria-current="page">
-                                    {{ $blog->name }}</li>
-                            </ol>
-                        </nav>
-                    </div>
+        <div class="page-header__bottom">
+            <div class="container">
+                <div class="page-header__bottom-inner">
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="/">Home</a></li>
+                        <li><span>.</span></li>
+                        <li>Blog</li>
+                        <li><span>.</span></li>
+                        <li class="active">{{ $blog->name }}</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-    <main class="flex-grow-1 py-5">
+    <!--Page Header End-->
+
+    <!--News One Start-->
+    <section class="news-details">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
-                    <!-- Single Blog Post -->
-                    <div class="blog-post">
-                        <div class="blog-post-img">
-                            <img class="img-fluid" src="{{ asset($blog->image) }}" alt="{{ $blog->name ?? '' }}">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="news-details__left">
+                        <div class="news-details__img">
+                            <img src="{{ asset($blog->image) }}" alt="{{ $blog->name ?? '' }}"
+                                style="height: 500px; object-fit: cover;">
+                            <div class="news-one__date">
+                                <p>{{ $blog->created_at->format('d') }} <br>
+                                    <span>{{ $blog->created_at->format('M') }}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="news-details__content">
+
+                            {!! $blog->description ?? '' !!}
+                        </div>
+                        <div class="news-details__bottom">
+
+                            <div class="news-details__social-list">
+                                @foreach (getsocialmedia() as $key => $social)
+                                    <a class="social-icon" href="{{ $social->link }}" target="_blank">
+                                        <i class="{{ $social->icon ?? '' }}"></i>
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
 
-                        <div class="blog-post-content mt-4">
-                            <div class="blog-meta mb-3">
-                                <i class="far fa-calendar-alt text-primary"></i>
-                                <span>{{ $blog->created_at->format('d M, Y') }}</span>
-                            </div>
-                            <div class="blog-description">
-                                <p>{!! $blog->description ?? '' !!}</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-                <!-- Sidebar -->
-                <div class="col-lg-4 mt-5 mt-lg-0">
-                    <div class="blog-sidebar">
-                        <!-- Recent Posts Widget -->
-                        <div class="sidebar-widget">
-                            <h4 class="sidebar-widget-title">Recent Posts</h4>
-                            <ul class="sidebar-recent-posts-list">
+                <div class="col-xl-4 col-lg-5">
+                    <div class="sidebar">
+                        <div class="sidebar__single sidebar__post">
+                            <h3 class="sidebar__title">Recent News</h3>
+                            <ul class="sidebar__post-list list-unstyled">
                                 @foreach ($popular_blog as $blgs)
-                                    <li>
-                                        <div class="sidebar-recent-post">
-                                            <div class="sidebar-recent-post-img">
+                                    @if ($blgs->slug !== request()->route('slug'))
+                                        <!-- Exclude current blog -->
+                                        <li>
+                                            <div class="sidebar__post-image">
                                                 <img src="{{ asset($blgs->image) }}" alt="{{ $blgs->name ?? '' }}">
                                             </div>
-                                            <div class="sidebar-recent-post-content">
-                                                <h5 class="sidebar-recent-post-title">
+                                            <div class="sidebar__post-content">
+                                                <h3>
+                                                    <a class="sidebar__post-content_meta" href="#"></a>
                                                     <a
                                                         href="{{ route('show.blogs', $blgs->slug) }}">{{ $blgs->name ?? '' }}</a>
-                                                </h5>
-                                                <div class="sidebar-recent-post-date">
-                                                    <i class="far fa-calendar-alt me-1"></i>
-                                                    {{ $blgs->created_at->format('d M, Y') }}
-                                                </div>
+                                                </h3>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-    </main>
+    </section>
 @endsection

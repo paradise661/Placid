@@ -108,7 +108,8 @@ class FrontendController extends Controller
     public function about()
     {
         $teams = Member::where('status', 1)->orderBy('order', 'asc')->get();
-        return view('frontend.about.index', compact('teams'));
+        $review = Review::where('status', 1)->orderBy('order', 'asc')->get();
+        return view('frontend.about.index', compact('teams', 'review'));
     }
     public function faq()
     {
@@ -125,72 +126,5 @@ class FrontendController extends Controller
 
         return view("frontend.register.index");
     }
-    public function registerstudent(Request $request)
-    {
-        $input = $request->all();
-
-        $rules = [
-            // Basic Info
-            'full_name' => 'required|string|max:255',
-            'dob' => 'required',
-
-            // Academic Qualification
-            'qualification' => 'required|string|max:255',
-            'see_school_name' => 'nullable|string|max:255',
-            'see_gpa' => 'nullable|string|max:255',
-            'see_passed_year' => 'nullable|string|max:255',
-            'plus_two_college_name' => 'nullable|string|max:255',
-            'plus_two_gpa' => 'nullable|string|max:255',
-            'plus_two_passed_year' => 'nullable|string|max:255',
-            'bachelor_college_name' => 'nullable|string|max:255',
-            'bachelor_gpa' => 'nullable|string|max:255',
-            'bachelor_passed_year' => 'nullable|string|max:255',
-            'master_college_name' => 'nullable|string|max:255',
-            'master_gpa' => 'nullable|string|max:255',
-            'master_passed_year' => 'nullable|string|max:255',
-
-            // Additional Info
-            'marital_status' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'mobile' => 'required',
-            'email' => 'required|email|max:255',
-            'phone2' => 'nullable|string|max:255',
-
-            // Guardian Info
-            'parents_name' => 'required|string|max:255',
-            'g_address' => 'required|string|max:255',
-            'g_mobile' => 'required|string|max:255',
-            'g_email' => 'nullable|email|max:255',
-
-            // Other Details
-            'preferred_country' => 'required|string|max:255',
-            'language_test' => 'required|string|max:255',
-            'test_type' => 'nullable|string|max:255',
-            'test_score' => 'nullable|string|max:255',
-            'preferred_education' => 'required|string|max:255',
-            'preferred_institution_name' => 'nullable|string|max:255',
-            'source' => 'required|array',
-            'message' => 'nullable|string',
-        ];
-        $customMessages = [
-            'parents_name.required' => 'The Parents/Guardian Name field is required.',
-            'g_address.required' => 'The Guardian Address field is required.',
-            'g_mobile.required' => 'The Guardian Mobile field is required.',
-        ];
-        $validator = Validator::make($input, $rules, $customMessages);
-        if ($validator->fails()) {
-            return redirect()->route("frontend.register")->withInput()->withErrors($validator);
-        } else {
-            // Convert the 'dob' field from dd-mm-yyyy to yyyy-mm-dd format
-            // $input['dob'] = Carbon::createFromFormat('d-m-Y', $input['dob'])->format('Y-m-d');
-
-            // Convert the source array to a JSON string
-            $input['source'] = json_encode($input['source']);
-
-            // Insert the data into the database
-            Enquiries::create($input);
-
-            return redirect()->back()->with('success', 'Registration successful!');
-        }
-    }
+    
 }

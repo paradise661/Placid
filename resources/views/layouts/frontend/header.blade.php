@@ -27,10 +27,11 @@
                     <div class="main-header__top-right">
                         <div class="main-header__top-right-inner">
                             <div class="main-header__top-right-social">
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                                @foreach (getsocialmedia() as $key => $social)
+                                    <a class="social-icon" href="{{ $social->link }}" target="_blank">
+                                        <i class="{{ $social->icon ?? '' }}"></i>
+                                    </a>
+                                @endforeach
                             </div>
 
                         </div>
@@ -47,8 +48,8 @@
                         <div class="main-menu-wrapper__left clearfix">
                             <div class="main-menu-wrapper__logo">
                                 <a href="{{ route('home') }}">
-                                    <img src="{{ asset('frontend/assets/images/resources/logo-1.png') }}"
-                                        alt="Tevily Logo">
+                                    <img src="{{ asset($setting['site_main_logo']) }}" alt="Logo"
+                                        style="max-width: 100px; height: auto;">
                                 </a>
                             </div>
 

@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
-use App\Models\Scholarship;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
-   /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -41,24 +40,29 @@ class SliderController extends Controller
     public function store(StoreNewsRequest $request)
     {
         $input = $request->all();
-        $input['image'] = fileUpload($request, 'image', 'slider');
+
+        // Handle multiple image uploads
+        if ($request->hasFile('image')) {
+            $images = $request->file('image');  // Get all uploaded files
+            $imagePaths = [];  // Initialize an array to store image paths
+
+            foreach ($images as $image) {
+                $imagePaths[] = $image->store('slider', 'public');  // Store each image
+            }
+
+            // Store the image paths as a comma-separated string
+            $input['image'] = implode(',', $imagePaths);
+        }
+
         $input['seo_title'] = $request->seo_title ?? $request->name;
         $slug = make_slug($request->name);
-        $slider =  Slider::create($input);
+
+        // Create the slider entry in the database
+        $slider = Slider::create($input);
         $slider->update(['slug' => $slug]);
+
         return redirect()->route('slider.index')->with('message', 'Created Successfully');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    // public function show($id)
-    // {
-    //     //
-    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -93,6 +97,7 @@ class SliderController extends Controller
 
         $input['slug'] = make_slug($request->name);
         $slider->update($input);
+
         return redirect()->route('slider.edit', $slider->id)->with('message', 'Update Successfully');
     }
 
@@ -106,6 +111,6 @@ class SliderController extends Controller
     {
         removeFile($slider->image);
         $slider->delete();
-        return redirect()->route('slider.index')->with('message', 'Delete Successfully');
+        return redirect()->route('slider.index')->with('message', 'Deleted Successfully');
     }
 }

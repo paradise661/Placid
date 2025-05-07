@@ -17,7 +17,9 @@
                                         <i class="fas fa-phone-square-alt"></i>
                                     </div>
                                     <div class="text">
-                                        <a href="tel:+92-666-888-0000">+92 666 888 0000</a>
+                                        <a href="tel:{{ $setting['site_phone'] ?? '' }}">
+                                            {{ $setting['site_phone'] ?? '' }}
+                                        </a>
                                     </div>
                                 </li>
                                 <li>
@@ -25,7 +27,9 @@
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div class="text">
-                                        <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                        <a href="mailto:{{ $setting['site_email'] ?? '' }}">
+                                            {{ $setting['site_email'] ?? '' }}
+                                        </a>
                                     </div>
                                 </li>
                                 <li>
@@ -33,7 +37,7 @@
                                         <i class="fas fa-map-marker-alt"></i>
                                     </div>
                                     <div class="text">
-                                        <p>666 road, broklyn street new york</p>
+                                        <p>{{ $setting['site_location'] ?? '' }}</p>
                                     </div>
                                 </li>
                             </ul>
@@ -43,11 +47,10 @@
                         <div class="footer-widget__column footer-widget__company clearfix">
                             <h3 class="footer-widget__title">Company</h3>
                             <ul class="footer-widget__company-list list-unstyled">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="#">Community Blog</a></li>
-                                <li><a href="#">Rewards</a></li>
-                                <li><a href="#">Work with Us</a></li>
-                                <li><a href="#">Meet the Team</a></li>
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="/blogs">Blog</a></li>
+                                <li><a href="Services">Services</a></li>
+                                <li><a href="/contact">Work with Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -55,64 +58,31 @@
                         <div class="footer-widget__column footer-widget__explore">
                             <h3 class="footer-widget__title">Explore</h3>
                             <ul class="list-unstyled footer-widget__explore-list">
-                                <li><a href="#">Account</a></li>
-                                <li><a href="#">Legal</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Affilitate Program</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/blogs">News</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                                <li><a href="/services">What We Offer</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="footer-widget__column footer-widget__newsletter">
-                            <h3 class="footer-widget__title">Newsletter</h3>
-                            <form class="footer-widget__newsletter-form mc-form"
-                                data-url="https://xyz.us18.list-manage.com/subscribe/post?u=20e91746ef818cd941998c598&id=cc0ee8140e">
-                                <div class="footer-widget__newsletter-input-box">
-                                    <input type="email" placeholder="Email address" name="EMAIL">
-                                    <button class="footer-widget__newsletter-btn" type="submit">Subscribe</button>
-                                </div>
-                            </form>
-                            <div class="mc-form__response text-center"></div><!-- /.mc-form__response -->
-                            <div class="footer-widget__newsletter-bottom">
-                                <div class="footer-widget__newsletter-bottom-icon">
-                                    <i class="fa fa-check"></i>
-                                </div>
-                                <div class="footer-widget__newsletter-bottom-text">
-                                    <p>I agree to all terms and policies</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="site-footer__bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="site-footer__bottom-inner">
-                        <div class="site-footer__bottom-left">
-                            <div class="footer-widget__social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
+                        <h3 class="footer-widget__title">Social</h3>
+                        <div class="footer-widget__social">
+                            @foreach (getsocialmedia() as $key => $social)
+                                <a class="social-icon" href="{{ $social->link }}" target="_blank">
+                                    <i class="{{ $social->icon ?? '' }}"></i>
+                                </a>
+                            @endforeach
                         </div>
                         <div class="site-footer__bottom-right">
                             <p>@ All Copyright 2025, Placid Travel and Tours| Designed by <a
                                     href="https://paradiseit.com.np/">Paradise
                                     InfoTech</a> </p>
                         </div>
-                        <div class="site-footer__bottom-left-arrow">
-                            <a class="scroll-to-target scroll-to-top" data-target="html" href="#"><span
-                                    class="icon-right-arrow"></span></a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </footer>

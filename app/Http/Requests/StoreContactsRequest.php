@@ -26,13 +26,10 @@ class StoreContactsRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required',
-            'course' => 'nullable',
             'number' => 'required',
-            'date' => 'nullable',
             'address' => 'nullable',
             'country' => 'nullable',
             'message' => 'required',
-            'url' => "required",
         ];
     }
 }

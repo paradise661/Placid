@@ -28,53 +28,22 @@
     <section class="destinations-one destinations-page">
         <div class="container">
             <div class="row masonary-layout">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="destinations-one__single">
-                        <div class="destinations-one__img">
-                            <img src="{{ asset('frontend/assets/images/destination/destination-1-4.png') }}" alt="">
-                            <div class="destinations-one__content">
-                                <h2 class="destinations-one__title"><a href="destinations-details.html">Trekking/Hiking</a>
-                                </h2>
+                @foreach ($services as $index => $service)
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="destinations-one__single">
+                            <div class="destinations-one__img">
+                                <img src="{{ asset($service->image ?? '') }}" alt="">
+                                <div class="destinations-one__content">
+                                    <h2 class="destinations-one__title">
+                                        <a href="{{ route('show.services', $service->slug) }}">
+                                            {{ $service->name ?? '' }}
+                                        </a>
+                                    </h2>
+                                </div>
                             </div>
-
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="destinations-one__single">
-                        <div class="destinations-one__img">
-                            <img src="{{ asset('frontend/assets/images/destination/destination-1-5.png') }}" alt="">
-                            <div class="destinations-one__content">
-                                <h2 class="destinations-one__title"><a href="destinations-details.html">Switzerland</a></h2>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-6 col-lg-6">
-                    <div class="destinations-one__single">
-                        <div class="destinations-one__img">
-                            <img src="{{ asset('frontend/assets/images/destination/destination-1-5.png') }}" alt="">
-                            <div class="destinations-one__content">
-                                <h2 class="destinations-one__title"><a href="destinations-details.html">Switzerland</a></h2>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="destinations-one__single">
-                        <div class="destinations-one__img">
-                            <img src="{{ asset('frontend/assets/images/destination/destination-1-4.png') }}" alt="">
-                            <div class="destinations-one__content">
-                                <h2 class="destinations-one__title"><a href="destinations-details.html">Trekking/Hiking</a>
-                                </h2>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

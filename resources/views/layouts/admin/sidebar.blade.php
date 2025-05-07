@@ -1,11 +1,11 @@
 <aside class="layout-menu menu-vertical menu bg-menu-theme" id="layout-menu">
     <div class="app-brand demo p-0">
         <a class="app-brand-link mx-auto my-0" href="{{ route('dashboard') }}" target="_blank">
-            @if ($setting['site_main_logo'])
+            {{-- @if ($setting['site_main_logo'])
                 <img style="max-width: 210px;" src="{{ asset($setting['site_main_logo']) }}" alt="logo">
             @else
                 <span class="app-brand-text demo menu-text fw-bolder ms-2">Travel</span>
-            @endif
+            @endif --}}
         </a>
 
         <a class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none" href="javascript:void(0);">
@@ -52,37 +52,6 @@
         <!-- Cards -->
 
         <!-- Abroad -->
-        <li class="menu-item @if (Request::segment(2) == 'abroad') {{ 'active open' }} @endif">
-            <a class="menu-link menu-toggle" href="javascript:void(0)">
-                <i class="menu-icon tf-icons bx bx-world"></i>
-                <div data-i18n="General Setting">Abroads</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a class="menu-link {{ Request::segment(2) == 'abroad' && Request::segment(3) == '' ? 'active' : '' }}"
-                        href="{{ route('abroad.index') }}">
-                        <i class="menu-icon tf-icons bx bx-book-content"></i>
-                        <div data-i18n="Accordion">All Abroads</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link {{ Request::segment(2) == 'abroad' && Request::segment(3) == 'create' ? 'active' : '' }}"
-                        href="{{ route('abroad.create') }}">
-                        <i class="menu-icon tf-icons bx bxs-file-plus"></i>
-                        <div data-i18n="Accordion">Create Abroad</div>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
-        <!-- Course -->
-        <li class="menu-item {{ Request::segment(2) == 'course' ? 'active open' : '' }}">
-            <a class="menu-link" id="slider-link" href="{{ route('course.index') }}">
-                <i class="menu-icon tf-icons bx bx-book-content"></i>
-                <div data-i18n="General Setting">Courses</div>
-            </a>
-        </li>
 
         <!-- services -->
         <!-- Services -->

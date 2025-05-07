@@ -22,7 +22,7 @@
     --thm-reey-font: 'reeyregular';
     --thm-gray: #787780;
     --thm-gray-rgb: 120, 119, 128;
-    --thm-primary: #e8604c;
+    --thm-primary: #0d6efd;
     --thm-primary-rgb: 232, 96, 76;
     --thm-black: #313041;
     --thm-black-rgb: 49, 48, 65;
@@ -7635,4 +7635,9 @@ ul {
 .brand-three {
     border-bottom: 0;
     border-top: 1px solid #ebe6de;
+}
+.sidebar {
+    position: sticky;
+    top: 20px; /* Adjust the value as needed */
+    z-index: 100;
 }

@@ -1,88 +1,82 @@
 @extends('layouts.frontend.master')
-@section('seo')
-    @include('frontend.seo.seo', [
-        'name' => $services->name ?? 'Gyanmarga Education and Services',
-        'title' => $services->seo_title ?? $services->name,
-        'description' => $services->meta_description ?? 'Gyanmarga Education and Services',
-        'keyword' => $services->keywords ?? 'Gyanmarga Education and Services',
-        'schema' => $services->seo_schema ?? 'Gyanmarga Education and Services',
-        'created_at' => $services->created_at,
-        'updated_at' => $services->updated_at,
-    ])
-@endsection
-
 @section('content')
-    <!-- Breadcrumb Section with Background Image -->
-    <section class="breadcrumb-section position-relative">
-        <div class="breadcrumb-bg-overlay"></div>
-        <div class="breadcrumb-bg">
-            <img class="breadcrumb-bg-image" src="{{ asset($services->banner_image) }}" alt="{{ $services->name ?? '' }}">
+    <section class="page-header">
+        <div class="page-header__top">
+            <div class="page-header-bg"
+                style="background-image: url('{{ asset('frontend/assets/images/backgrounds/page-header-bg.jpg') }}');"></div>
+            <div class="page-header-bg-overly"></div>
+            <div class="container">
+                <div class="page-header__top-inner">
+                    <h2>Destinations Details</h2>
+                </div>
+            </div>
         </div>
-        <div class="container position-relative">
+        <div class="page-header__bottom">
+            <div class="container">
+                <div class="page-header__bottom-inner">
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><span>.</span></li>
+                        <li>Services</li>
+                        <li><span>.</span></li>
+                        <li class="active">{{ $services->name }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Page Header End-->
+
+    <!--Destinations Details Start-->
+    <section class="destinations-details">
+        <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb-content py-4">
-                        <h2 class="breadcrumb-title text-white mb-3">{{ $services->name ?? '' }}</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0 justify-content-center justify-content-md-start">
-                                <li class="breadcrumb-item"><a class="text-white text-decoration-none"
-                                        href="{{ route('home') }}">Home</a></li>
-                                <li class="breadcrumb-item"><a class="text-white text-decoration-none"
-                                        href="{{ route('services') }}">Services</a></li>
-                                <li class="breadcrumb-item active text-white bluetext" aria-current="page">
-                                    {{ $services->name ?? '' }}</li>
-                            </ol>
-                        </nav>
+                <div class="col-xl-8 col-lg-7">
+                    <div class="destinations-details__left">
+                        <div class="destinations-details__img">
+                            <img src="{{ asset($services->image) }}" alt="{{ $services->name ?? '' }}"
+                                style="height: 500px;">
+                        </div>
+                        <div class="destinations-details__discover">
+                            <h3 class="destinations-details__title">{{ $services->name ?? '' }}</h3>
+                            <div class="news-details__content">
+
+                                {!! $services->description ?? '' !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="destinations-details__right">
+                        <div class="tour-details-two__last-minute tour-details-two__last-minute-2">
+                            <h3 class="tour-details-two__sidebar-title">Our Services</h3>
+                            <ul class="tour-details-two__last-minute-list list-unstyled">
+                                @foreach ($popular_services as $blgs)
+                                    <li>
+                                        <div class="tour-details-two__last-minute-image">
+                                            <img src="{{ asset($blgs->image) }}" alt="{{ $blgs->name ?? '' }}">
+                                        </div>
+                                        <div class="tour-details-two__last-minute-content">
+                                            <h5><a
+                                                    href="{{ route('show.services', $blgs->slug) }}">{{ $blgs->name ?? '' }}</a>
+                                            </h5>
+
+                                        </div>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+                        </div>
+                        <div class="destinations-details__discount">
+                            <img src="assets/images/resources/destinations-details__discount-img.jpg" alt="">
+                            <div class="destinations-details__discount-content">
+                                <h2>30%</h2>
+                                <h4>Discount on Spain <br> Tours</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <main class="flex-grow-1 py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <!-- Single Blog Post -->
-                    <div class="blog-post">
-                        <div class="blog-post-img">
-                            <img class="img-fluid" src="{{ asset($services->image) }}" alt="{{ $services->name ?? '' }}">
-                        </div>
-
-                        <div class="blog-post-content mt-4">
-                            <div class="blog-description">
-                                <p>{!! $services->description ?? '' !!}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="col-lg-4 mt-5 mt-lg-0">
-                    <div class="blog-sidebar">
-                        <!-- Recent Posts Widget -->
-                        <div class="sidebar-widget">
-                            <h4 class="sidebar-widget-title">Recent Services</h4>
-                            <ul class="sidebar-recent-posts-list">
-                                @foreach ($popular_services as $blgs)
-                                    <li>
-                                        <div class="sidebar-recent-post">
-                                            <div class="sidebar-recent-post-img">
-                                                <img src="{{ asset($blgs->image) }}" alt="{{ $blgs->name ?? '' }}">
-                                            </div>
-                                            <div class="sidebar-recent-post-content">
-                                                <h5 class="sidebar-recent-post-title">
-                                                    <a
-                                                        href="{{ route('show.services', $blgs->slug) }}">{{ $blgs->name ?? '' }}</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
 @endsection

@@ -31,7 +31,7 @@
                 <div class="col-xl-6">
                     <div class="about-page__left">
                         <div class="about-page__img">
-                            <img src="{{ asset('frontend/assets/images/resources/about-page-img.jpg') }}" alt="">
+                            <img src="{{ asset($setting['aboutpage_image']) }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -39,13 +39,11 @@
                     <div class="about-page__right">
                         <div class="section-title text-left">
                             <span class="section-title__tagline">Learn about us</span>
-                            <h2 class="section-title__title">Dare to Explore with Tevily Agency</h2>
+                            <h2 class="section-title__title">{{ $setting['aboutpage_title'] ?? '' }}</h2>
                         </div>
                         <p class="about-page__text-1">A Simply Perfect Place to Get Lost</p>
                         <p class="about-page__text-2">
-                            We are trusted by our clients and have a reputation for the best services in the field.
-                            Lorem ipsum is simply free text dolor sit amett consectetur adipiscing elit. It is a long
-                            established fact that a reader will be distracted by the readable content of a page.
+                            {!! $setting['aboutpage_description'] ?? '' !!}
                         </p>
 
                     </div>
@@ -56,213 +54,37 @@
 
     <section class="testimonial-one about-page-testimonial">
         <div class="about-page-testimonial-map"
-            style="background-image: url(assets/images/shapes/about-page-testimonial-map.png)"></div>
+            style="background-image: url('{{ asset('frontend/assets/images/shapes/about-page-testimonial-map.png') }}');">
+        </div>
         <div class="container">
             <div class="section-title text-center">
                 <span class="section-title__tagline">Testimonials & reviews</span>
-                <h2 class="section-title__title">What They’re Saying</h2>
+                <h2 class="section-title__title">{{ $setting['homepage_testimonials'] ?? '' }}</h2>
             </div>
             <div class="row">
                 <div class="col-xl-12">
                     <div class="testimonial-one__carousel owl-theme owl-carousel">
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-1.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
+                        @foreach ($review as $reviews)
+                            <div class="testimonial-one__single">
+                                <div class="testimonial-one__img">
+                                    <img src="{{ asset($reviews->image) }}" alt="{{ $reviews->name ?? '' }}">
                                 </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Shirley Smith</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-2.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Kevin Martin</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
+                                <div class="testimonail-one__content">
+                                    <div class="testimonial-one__top-revivew-box">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-one__text">{{ strip_tags($reviews->description) }}</p>
+                                    <div class="testimonial-one__client-info">
+                                        <h3 class="testimonial-one__client-name">{{ $reviews->name ?? '' }}</h3>
+                                        <p class="testimonial-one__client-title">{{ $reviews->position ?? '' }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-3.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Jessica Brown</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-1.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Shirley Smith</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-2.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Kevin Martin</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-3.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Jessica Brown</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-1.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Shirley Smith</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-2.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Kevin Martin</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__img">
-                                <img src="{{ asset('frontend/assets/images/testimonial/testimonial-one-img-3.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonail-one__content">
-                                <div class="testimonial-one__top-revivew-box">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="testimonial-one__text">This is due to their best service, pricing and
-                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
-                                    irure lupsum reprehenderit.</p>
-                                <div class="testimonial-one__client-info">
-                                    <h3 class="testimonial-one__client-name">Jessica Brown</h3>
-                                    <p class="testimonial-one__client-title">Customer</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -278,11 +100,10 @@
                 </div>
                 <div class="why-choose__right-content">
                     <div class="section-title text-right">
-                        <h2 class="section-title__title">Our Mission</h2>
+                        <h2 class="section-title__title">{{ $setting['mision_title'] ?? '' }}</h2>
                     </div>
                     <p class="why-choose__right-text">
-                        There are many variations of passages of Lorem Ipsum is simply
-                        free text available in the market for you, but the majority have suffered alteration in some form.
+                        {{ $setting['mision_description'] ?? '' }}
                     </p>
                     {{-- <ul class="list-unstyled why-choose__list">
                         <li>
@@ -316,11 +137,10 @@
                 </div>
                 <div class="why-choose__right-content">
                     <div class="section-title text-right">
-                        <h2 class="section-title__title">Our Vision</h2>
+                        <h2 class="section-title__title">{{ $setting['vision_title'] ?? '' }}</h2>
                     </div>
                     <p class="why-choose__right-text">
-                        There are many variations of passages of Lorem Ipsum is simply
-                        free text available in the market for you, but the majority have suffered alteration in some form.
+                        {{ $setting['vision_description'] ?? '' }}
                     </p>
                     {{-- <ul class="list-unstyled why-choose__list">
                         <li>
@@ -357,11 +177,11 @@
                 <div class="col-xl-12">
                     <div class="book-now__inner">
                         <div class="book-now__left">
-                            <p>Plan your trip with us</p>
-                            <h2>Ready for an unforgettable tour?</h2>
+                            <p>{{ $setting['abroads_title'] ?? '' }}</p>
+                            <h2>{{ $setting['abroads_description'] ?? '' }}</h2>
                         </div>
                         <div class="book-now__right">
-                            <a class="thm-btn book-now__btn" href="#">Contact Us</a>
+                            <a class="thm-btn book-now__btn" href="{{ route('contact') }}">Contact Us</a>
                         </div>
                     </div>
                 </div>

@@ -43,20 +43,6 @@
                             </tr>
                         @endif
 
-                        @if ($contact->course)
-                            <tr>
-                                <td>Subject</td>
-                                <td>{!! $contact->course !!}</td>
-                            </tr>
-                        @endif
-
-                        @if ($contact->country)
-                            <tr>
-                                <td>Country</td>
-                                <td>{!! $contact->country !!}</td>
-                            </tr>
-                        @endif
-
                         @if ($contact->date)
                             <tr>
                                 <td>Appointment Date</td>
@@ -75,13 +61,6 @@
                             <tr>
                                 <td>Message</td>
                                 <td>{!! $contact->message !!}</td>
-                            </tr>
-                        @endif
-
-                        @if ($contact->url)
-                            <tr>
-                                <td>Url</td>
-                                <td><a target="_blank" href="{!! $contact->url !!}">{!! $contact->url !!}</a></td>
                             </tr>
                         @endif
 
