@@ -1,5 +1,14 @@
 @extends('layouts.frontend.master')
-
+@section('seo')
+    @include('frontend.seo.seo', [
+        'name' => $setting['contact_title'] ?? 'Placid Tour & Travels PVT LTD',
+        'title' => $setting['contact_seo_title'] ?? 'Placid Tour & Travels PVT LTD',
+        'description' => $setting['contact_seo_description'] ?? 'Placid Tour & Travels PVT LTD',
+        'keyword' => $setting['contact_seo_keywords'] ?? 'Placid Tour & Travels PVT LTD',
+        'created_at' => '2024-04-26T08:09:15+00:00',
+        'updated_at' => '2024-04-26T10:54:05+00:00',
+    ])
+@endsection
 @section('content')
     <main class="flex-grow-1">
         <!-- Breadcrumb Section with Background Image -->

@@ -1,5 +1,15 @@
 @extends('layouts.frontend.master')
-
+@section('seo')
+    @include('frontend.seo.seo', [
+        'name' => $blog->name ?? 'Placid Tour & Travels PVT LTD',
+        'title' => $blog->seo_title ?? $blog->name,
+        'description' => $blog->meta_description ?? 'Placid Tour & Travels PVT LTD',
+        'keyword' => $blog->keywords ?? 'Placid Tour & Travels PVT LTD',
+        'schema' => $blog->seo_schema ?? 'Placid Tour & Travels PVT LTD',
+        'created_at' => $blog->created_at,
+        'updated_at' => $blog->updated_at,
+    ])
+@endsection
 @section('content')
     <section class="page-header">
         <div class="page-header__top">

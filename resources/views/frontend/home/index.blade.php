@@ -1,5 +1,14 @@
 @extends('layouts.frontend.master')
-
+@section('seo')
+    @include('frontend.seo.seo', [
+        'name' => $setting['homepage_title'] ?? 'Home',
+        'title' => $setting['homepage_seo_title'] ?? 'Placid Tour & Travels PVT LTD',
+        'description' => $setting['homepage_seo_description'] ?? 'Placid Tour & Travels PVT LTD',
+        'keyword' => $setting['homepage_seo_keywords'] ?? 'Placid Tour & Travels PVT LTD',
+        'created_at' => '2024-04-26T08:09:15+00:00',
+        'updated_at' => '2024-04-26T10:54:05+00:00',
+    ])
+@endsection
 @section('content')
     <!--Main Slider Start-->
     <section class="main-slider">
