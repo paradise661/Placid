@@ -124,15 +124,13 @@
             </div>
 
             <div class="destinations-two__bottom">
-                <div class="row">
+                <div class="row g-3"> <!-- g-3 adds gutter space between columns -->
                     @foreach ($services->take(7) as $index => $service)
-                        <div class="col-xl-3 col-lg-3">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                             <div class="destinations-two__top-single wow fadeInUp"
                                 data-wow-delay="{{ ($index + 1) * 100 }}ms">
-                                <div class="destinations-two__top-img"
-                                    style="width: 285px; height: 285px; overflow: hidden;">
-                                    <img src="{{ asset($service->image ?? '') }}" alt=""
-                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                <div class="destinations-two__top-img ratio-box">
+                                    <img class="img-fluid" src="{{ asset($service->image ?? '') }}" alt="">
                                     <div class="destinations-two__top-content">
                                         <h2 class="destinations-two__top-title">
                                             <a class="service-link" href="{{ route('show.services', $service->slug) }}">
@@ -145,12 +143,12 @@
                         </div>
                     @endforeach
 
-                    <div class="col-xl-3 col-lg-3">
-                        <div class="destinations-two__top-single wow fadeInUp" data-wow-delay="600ms">
-                            <div class="destinations-two__top-banner"
-                                style="height: 285px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="destinations-two__top-single wow fadeInUp" data-wow-delay="800ms">
+                            <div class="destinations-two__top-banner d-flex flex-column justify-content-center align-items-center"
+                                style="height: 100%; min-height: 285px;">
                                 <h2>View <span>All Services</span></h2>
-                                <a class="thm-btn destinations-two__btn" href="{{ route('services') }}">View More</a>
+                                <a class="thm-btn destinations-two__btn mt-3" href="{{ route('services') }}">View More</a>
                             </div>
                         </div>
                     </div>
@@ -216,37 +214,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                            {{-- <!--News One Single-->
-                                <div class="news-one__single wow fadeInUp" data-wow-delay="200ms">
-                                    <div class="news-one__img">
-                                        <img src="{{ asset('frontend/assets/images/blog/news-one-img-2.jpg') }}"
-                                            alt="">
-                                        <a href="news-details.html"><span class="news-one__plus"></span></a>
-                                        <div class="news-one__date">
-                                            <p>28 <br> <span>Aug</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="news-one__content">
-                                        <h3 class="news-one__title"><a href="news-details.html">Journeys are Best Measured
-                                                in
-                                                New Friends</a></h3>
-                                    </div>
-                                </div>
-                                <!--News One Single-->
-                                <div class="news-one__single wow fadeInUp" data-wow-delay="300ms">
-                                    <div class="news-one__img">
-                                        <img src="{{ asset('frontend/assets/images/blog/news-one-img-3.jpg') }}"
-                                            alt="">
-                                        <a href="news-details.html"><span class="news-one__plus"></span></a>
-                                        <div class="news-one__date">
-                                            <p>28 <br> <span>Aug</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="news-one__content">
-                                        <h3 class="news-one__title"><a href="news-details.html">Travel the Most Beautiful
-                                                Places in the World</a></h3>
-                                    </div>
-                                </div> --}}
+
                         </div>
                         {{-- Centered Button --}}
                         <div style="text-align: center; margin-top: 30px;">

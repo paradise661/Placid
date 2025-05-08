@@ -29,11 +29,11 @@
         <div class="container">
             <div class="row masonary-layout">
                 @foreach ($services as $index => $service)
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="destinations-one__single">
+                    <div class="col-xl-3 col-lg-3 d-flex">
+                        <div class="destinations-one__single flex-fill d-flex flex-column">
                             <div class="destinations-one__img">
                                 <img src="{{ asset($service->image ?? '') }}" alt="">
-                                <div class="destinations-one__content">
+                                <div class="destinations-one__content mt-auto">
                                     <h2 class="destinations-one__title">
                                         <a href="{{ route('show.services', $service->slug) }}">
                                             {{ $service->name ?? '' }}

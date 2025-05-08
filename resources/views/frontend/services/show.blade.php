@@ -7,7 +7,7 @@
             <div class="page-header-bg-overly"></div>
             <div class="container">
                 <div class="page-header__top-inner">
-                    <h2>Destinations Details</h2>
+                    <h2>{{ $services->name ?? '' }}</h2>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-5">
+                {{-- <div class="col-xl-4 col-lg-5">
                     <div class="destinations-details__right">
                         <div class="tour-details-two__last-minute tour-details-two__last-minute-2">
                             <h3 class="tour-details-two__sidebar-title">Our Services</h3>
@@ -54,28 +54,58 @@
                                 @foreach ($popular_services as $blgs)
                                     <li>
                                         <div class="tour-details-two__last-minute-image">
-                                            <img src="{{ asset($blgs->image) }}" alt="{{ $blgs->name ?? '' }}">
+                                            <img src="{{ asset($blgs->image) }}" alt="{{ $blgs->name ?? 'Service Image' }}">
                                         </div>
-                                        <div class="tour-details-two__last-minute-content">
-                                            <h5><a
-                                                    href="{{ route('show.services', $blgs->slug) }}">{{ $blgs->name ?? '' }}</a>
-                                            </h5>
 
+                                        <div class="tour-details-two__last-minute-content">
+                                            <h5>
+                                                <a href="{{ route('show.services', $blgs->slug) }}">
+                                                    {{ $blgs->name ?? '' }}
+                                                </a>
+                                            </h5>
                                         </div>
                                     </li>
                                 @endforeach
-
                             </ul>
                         </div>
+
                         <div class="destinations-details__discount">
-                            <img src="assets/images/resources/destinations-details__discount-img.jpg" alt="">
+                            <img src="{{ asset('assets/images/resources/destinations-details__discount-img.jpg') }}"
+                                alt="Discount Image">
                             <div class="destinations-details__discount-content">
                                 <h2>30%</h2>
                                 <h4>Discount on Spain <br> Tours</h4>
                             </div>
                         </div>
                     </div>
+                </div> --}}
+                <div class="col-xl-4 col-lg-5">
+                    <div class="sidebar">
+                        <div class="sidebar__single sidebar__post">
+                            <h3 class="sidebar__title">Our Services</h3>
+                            <ul class="sidebar__post-list list-unstyled">
+                                @foreach ($popular_services as $blgs)
+                                    @if ($blgs->slug !== request()->route('slug'))
+                                        <!-- Exclude current blog -->
+                                        <li>
+                                            <div class="sidebar__post-image">
+                                                <img src="{{ asset($blgs->image) }}" alt="{{ $blgs->name ?? '' }}">
+                                            </div>
+                                            <div class="sidebar__post-content">
+                                                <h3>
+                                                    <a class="sidebar__post-content_meta" href="#"></a>
+                                                    <a
+                                                        href="{{ route('show.blogs', $blgs->slug) }}">{{ $blgs->name ?? '' }}</a>
+                                                </h3>
+                                            </div>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
