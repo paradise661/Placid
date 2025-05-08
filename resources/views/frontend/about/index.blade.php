@@ -60,46 +60,6 @@
             </div>
         </div>
     </section>
-
-    <section class="testimonial-one about-page-testimonial">
-        <div class="about-page-testimonial-map"
-            style="background-image: url('{{ asset('frontend/assets/images/shapes/about-page-testimonial-map.png') }}');">
-        </div>
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="section-title__tagline">Testimonials & reviews</span>
-                <h2 class="section-title__title">{{ $setting['homepage_testimonials'] ?? '' }}</h2>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="testimonial-one__carousel owl-theme owl-carousel">
-                        @foreach ($review as $reviews)
-                            <div class="testimonial-one__single">
-                                <div class="testimonial-one__img">
-                                    <img src="{{ asset($reviews->image) }}" alt="{{ $reviews->name ?? '' }}">
-                                </div>
-                                <div class="testimonail-one__content">
-                                    <div class="testimonial-one__top-revivew-box">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <p class="testimonial-one__text">{{ strip_tags($reviews->description) }}</p>
-                                    <div class="testimonial-one__client-info">
-                                        <h3 class="testimonial-one__client-name">{{ $reviews->name ?? '' }}</h3>
-                                        <p class="testimonial-one__client-title">{{ $reviews->position ?? '' }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="why-choose">
         <div class="why-choose__container">
             <!-- Left Side (Centered) -->
@@ -178,7 +138,45 @@
         </div>
     </section>
 
-    <section class="book-now">
+    <section class="testimonial-one about-page-testimonial">
+        <div class="about-page-testimonial-map"
+            style="background-image: url('{{ asset('frontend/assets/images/shapes/about-page-testimonial-map.png') }}');">
+        </div>
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">Testimonials & reviews</span>
+                <h2 class="section-title__title">{{ $setting['homepage_testimonials'] ?? '' }}</h2>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testimonial-one__carousel owl-theme owl-carousel">
+                        @foreach ($review as $reviews)
+                            <div class="testimonial-one__single">
+                                <div class="testimonial-one__img">
+                                    <img src="{{ asset($reviews->image) }}" alt="{{ $reviews->name ?? '' }}">
+                                </div>
+                                <div class="testimonail-one__content">
+                                    <div class="testimonial-one__top-revivew-box">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-one__text">{{ strip_tags($reviews->description) }}</p>
+                                    <div class="testimonial-one__client-info">
+                                        <h3 class="testimonial-one__client-name">{{ $reviews->name ?? '' }}</h3>
+                                        <p class="testimonial-one__client-title">{{ $reviews->position ?? '' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- <section class="book-now">
         <div class="book-now-shape"
             style="background-image: url('{{ asset('frontend/assets/images/shapes/book-now-shape.png') }}');"></div>
         <div class="container">
@@ -196,5 +194,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection

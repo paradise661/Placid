@@ -9,8 +9,7 @@
                                 <a href="index.html"><img src="assets/images/resources/footer-logo.png"
                                         alt=""></a>
                             </div>
-                            <p class="footer-widget__about-text">Welcome to our Trip and Tour Agency. Lorem
-                                simply text amet cing elit.</p>
+                            <p class="footer-widget__about-text">{{ $setting['site_information'] }}</p>
                             <ul class="footer-widget__about-contact list-unstyled">
                                 <li>
                                     <div class="icon">

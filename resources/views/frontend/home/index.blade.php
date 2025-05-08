@@ -88,7 +88,7 @@
 
                 <style>
                     .custom-btn {
-                        background-color: #0a58ca !important;
+                        background-color: #012c7b !important;
                         color: #fff !important;
                         border: none;
                     }
@@ -105,7 +105,7 @@
                 </style>
 
                 <div class="btn-wrapper">
-                    <a class="thm-btn custom-btn" href="#">View More</a>
+                    <a class="thm-btn custom-btn" href="/about">View More</a>
                 </div>
 
             </div>

@@ -22,7 +22,7 @@
     --thm-reey-font: 'reeyregular';
     --thm-gray: #787780;
     --thm-gray-rgb: 120, 119, 128;
-    --thm-primary: #0d6efd;
+    --thm-primary: #012c7b;
     --thm-primary-rgb: 232, 96, 76;
     --thm-black: #313041;
     --thm-black-rgb: 49, 48, 65;
@@ -311,7 +311,7 @@ ul {
     position: relative;
     display: block;
     overflow: hidden;
-    background-color: var(--thm-black);
+    background-color: #012c7b;
 }
 
 .main-header__top-inner {
@@ -349,7 +349,7 @@ ul {
 
 .main-header__top-address li .icon span {
     font-size: 15px;
-    color: var(--thm-primary);
+    color: #fff;
 }
 
 .main-header__top-address li .text {
@@ -359,7 +359,7 @@ ul {
 .main-header__top-address li .text a {
     font-size: 13px;
     font-weight: 500;
-    color: #a9a8b6;
+    color: #fcfcfc;
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
 }
@@ -404,7 +404,7 @@ ul {
 }
 
 .main-header__top-right-social a:hover {
-    color: var(--thm-primary);
+    color: #ef6e6e;
 }
 
 .main-header__top-right-social a+a {
@@ -1448,7 +1448,8 @@ ul {
     position: relative;
     display: inline-block;
     margin: 0;
-    color: var(--thm-primary);
+    color: #fff
+    ;
     font-size: 80px;
     line-height: 90px;
     font-weight: 400;
@@ -3046,7 +3047,7 @@ ul {
     justify-content: center;  /* Horizontally center content */
     width: 50%;
     padding: 123px 60px 108px;
-    background-color: var(--thm-black);
+    background-color: #012c7b;
     box-sizing: border-box;
 }
 .why-choose__left .why-choose__right-content,
@@ -3362,7 +3363,7 @@ ul {
 .site-footer {
     position: relative;
     display: block;
-    background-color: var(--thm-black);
+    background-color: #012c7b;
 }
 
 .site-footer__top {
@@ -3418,7 +3419,7 @@ ul {
 
 .footer-widget__about-contact li .icon i {
     font-size: 15px;
-    color: var(--thm-primary);
+    color: #fff;
 }
 
 .footer-widget__about-contact li .text {
@@ -3440,7 +3441,7 @@ ul {
 }
 
 .footer-widget__about-contact li .text a:hover {
-    color: var(--thm-primary);
+    color: #fff;
 }
 
 .footer-widget__title {
@@ -7290,7 +7291,7 @@ ul {
 .about-page {
     position: relative;
     display: block;
-    padding: 120px 0 120px;
+    padding: 50px 0 10px;
 }
 
 .about-page__left {
