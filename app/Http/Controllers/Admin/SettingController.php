@@ -27,6 +27,7 @@ class SettingController extends Controller
 
         $site_main_logo = updatesettingmedia($request, 'site_main_logo', 'main_logo');
         $site_fav_icon = updatesettingmedia($request, 'site_fav_icon', 'fav_logo');
+        $footer_logo = updatesettingmedia($request, 'footer_logo', 'footer_logo');
         $homepage_image = updatesettingmedia($request, 'homepage_image', 'home');
         // add new images for pages from here
         $test_image = updatesettingmedia($request, 'testpreperation_image', 'test');
@@ -67,6 +68,7 @@ class SettingController extends Controller
 
         $siteSetting['site_fav_icon'] = deletesettingmedia($site_fav_icon, $siteSettings['site_fav_icon'], 'site_fav_icon', $siteSetting, $siteSettings);
 
+        $siteSetting['footer_logo'] = deletesettingmedia($footer_logo, $siteSettings['footer_logo'], 'footer_logo', $siteSetting, $siteSettings);
 
         $siteSetting['homepage_image'] = deletesettingmedia($homepage_image, $siteSettings['homepage_image'], 'homepage_image', $siteSetting, $siteSettings);
 

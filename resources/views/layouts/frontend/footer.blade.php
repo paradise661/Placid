@@ -6,8 +6,8 @@
                     <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                         <div class="footer-widget__column footer-widget__about">
                             <div class="footer-widget__about-logo">
-                                <a href="index.html"><img src="assets/images/resources/footer-logo.png"
-                                        alt=""></a>
+                                <a href="/"><img src="{{ asset($setting['footer_logo']) }}" alt="Logo"
+                                        style="max-width: 140px; height: auto;"></a>
                             </div>
                             <p class="footer-widget__about-text">{{ $setting['site_information'] }}</p>
                             <ul class="footer-widget__about-contact list-unstyled">

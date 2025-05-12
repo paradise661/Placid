@@ -293,7 +293,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    {{-- <div class="form-group mb-3">
+                        <label class="pb-2" for="homepage_contacttitle">Enter Contact Title</label>
+                        <input class="form-control br-8" type="text" name="homepage_contacttitle"
+                            value="{{ $settings['homepage_contacttitle'] }}" placeholder="Enter Contact Title">
+                    </div> --}}
 
+                    <div class="form-group mb-3">
+                        <label class="pb-2" for="footer_logo">Enter Footer Logo </label>
+                        <div class="custom-file">
+                            <input class="abroadsimage" id="footer_logo" data-show-remove="false"
+                                data-default-file="{{ $settings['footer_logo'] }}" type="file"
+                                name="footer_logo">
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12">
 
                 </div>

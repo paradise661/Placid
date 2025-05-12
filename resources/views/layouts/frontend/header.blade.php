@@ -49,7 +49,7 @@
                             <div class="main-menu-wrapper__logo">
                                 <a href="{{ route('home') }}">
                                     <img src="{{ asset($setting['site_main_logo']) }}" alt="Logo"
-                                        style="max-width: 100px; height: auto;">
+                                        style="max-width: 130px; height: auto;">
                                 </a>
                             </div>
 
@@ -72,7 +72,13 @@
 
                                     </li>
                                     <li><a href="{{ route('contact') }}">Contact</a></li>
+                                    <li>
+                                        <a class="thm-btn mt-0" href="{{ route('contact') }}"
+                                            style="color: white; margin-left: 20px;">Inquiry</a>
+
+                                    </li>
                                 </ul>
+
                             </div>
                         </div>
 
